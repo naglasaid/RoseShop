@@ -45,7 +45,7 @@ flex-wrap: wrap;
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     width: 450px;
     height: 450px;
-    background: url(../Images/Rose/rose32.jpg) no-repeat;
+    background: url(../images/Rose/rose32.jpg) no-repeat;
     background-size: cover;
     position: relative;
    
@@ -91,7 +91,7 @@ color: #fdc385;
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     width: 450px;
     height: 450px;
-    background: url(../Images/Rose/rose36.jpg) no-repeat;
+    background: url(../images/Rose/rose36.jpg) no-repeat;
     background-size: cover;
     position: relative;
    
@@ -102,7 +102,7 @@ color: #fdc385;
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     width: 450px;
     height: 450px;
-    background: url(../Images/Rose/rose27.jpg) no-repeat;
+    background: url(../images/Rose/rose27.jpg) no-repeat;
     background-size: cover;
     position: relative;
    
