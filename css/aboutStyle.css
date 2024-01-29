@@ -45,8 +45,8 @@ flex-wrap: wrap;
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     width: 450px;
     height: 450px;
-    background-image: url(../images/Rose/rose32.jpg) no-repeat;
-    /* background-image: url(../Images/Main-photo.jpeg); */
+    background: url(../images/Rose/rose32.jpg) no-repeat;
+    
     background-size: cover;
     background-position: center;
     position: relative;
