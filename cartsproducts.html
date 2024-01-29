@@ -4,39 +4,78 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Shopping Cart ||Log In</title>
+<title>Shopping Cart || Carts Products</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">  <!-- bootstarp stylesheet -->
 <link rel="stylesheet" href="css/all.css">     <!-- for using google icons -->
 <link rel="stylesheet" href="css/NewStyle.css">  <!-- My own Style -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap" rel="stylesheet">
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap" rel="stylesheet"> -->
+
 
 
 </head>
 
 <body>
-  <div class="container-fluid banner fs-6 fw-bold"> Free Shipping On All Orders</div>
+
+  <div class="container-fluid banner  d-flex justify-content-between align-items-center pt-1"> <span class="fs-6 fw-bold">Free Shipping On All Orders</span>
+    <ul id="user_info" class="navbar-nav ms-auto  mb-lg-0">
+      <li class="nav-item"><a class="nav-link" href="#" id="user"></a></li>
+      <li class="nav-item shopping-cart">
+        <i class="fas fa-shopping-cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i>
+        <span class="badge"></span>
+        
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header bg-dark text-light">
+    <h5 id="offcanvasRightLabel" style="color: #ef3766;">CART</h5>
+    
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" style="background-color: #c19d5f"></button>
+    
+  </div>
+  <div class="offcanvas-body">
+    <div class="carts_products">
+      <div class="text-start"></div>
+      <!-- <div class="cart-price-total d-flex justify-content-between">
+        <h5>Total :</h5>
+        <h5>$166.00</h5>
+    </div> -->
+      <div class="d-flex cart-actions"><a class="fw-bold rounded-pill" href="cartsproducts.html">View Cart</a>
+        <a class="fw-bold rounded-pill" href="#">Check Out</a></div>
+      
+    </div>
+  </div>
+</div>
+  
+       
+      </li>
+      <li class="nav-item"><a class="nav-link" href="#" id="logout">log out</a></li>
+      
+    </ul>
+  </div>
+
+  
+  
+
+<header>
 
   
 
-  
-  <nav class="navbar navbar-expand-lg sticky-top">
-
+  <nav class="navbar navbar-expand-lg sticky-top>
     <div class="container-fluid">
+    
       <a class="navbar-brand" href="index.html"><img src="images/Rose/rose67.jpg"></a>
       <a class="navbar-brand text m-2" href="index.html" style="border-right:0px solid #ef3766; padding-right: 10px; font-weight: bold; color: #fdc385;letter-spacing: 1px;
       font-size:35px !important;"><span style="color:#ef3766;">Rose</span><span style="border-bottom:3px solid #fdc385;padding-bottom: 7px;">shop</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main" aria-controls="main" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main" aria-controls="main" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
-      </button>
+      </button> -->
       <div class="collapse navbar-collapse" id="main">
-        <ul class="navbar-nav ms-auto  mb-2 mb-lg-0" id="links">
+        <ul class="navbar-nav ms-auto  mb-2 mb-lg-0"  id="links">
           <li class="nav-item">
             <a class="nav-link p-2 p-lg-3 active" aria-current="page" href="#">Home</a>
           </li>
-          <li class="nav-item">   
+          <li class="nav-item">
             <a class="nav-link p-2 p-lg-3 " aria-current="page" href="#">About</a>
           </li>
           
@@ -49,43 +88,76 @@
           </li>
        
         </ul>
-        <ul id="user_info" class="navbar-nav ms-auto  mb-2 mb-lg-0">
-          <li><a href="#" id="user"></a></li>
-        </ul>
+       
       </div>
     </div>
   </nav>
 
 
 
-  <section>
 
-  <div class="container-md  mt-4 text-center">
+</header>
+ 
+
+  
+  
+
+
+
+ 
+
+
+ 
+ 
+  
+  
+  
+  
+<section>
+  <div class="container-fluid  my-5">
     
-      <div class="row rounded-5 p-3 my-2 border-0"> 
-        
-        <div class="col-md-12 p-4 text-center section-form">
-          <h2 class="mt-1 mb-2">Sign In</h2>
-          <hr></hr>
-          <img src="images/Rose/rose45.jpg" class="mt-2 mb-3 rounded-pill img-fluid"/>
-     
-    <form>
-        <input type="text" placeholder="Enter Username" id="username">
-        <input type="password" placeholder="Enter password" id="password">
+    <div class="products row text-center">
+    
+    
 
-        <input type="submit" value= "Sign In" id="sign_in" class="rounded-pill">
-        Haven't Account? <a href="register.html">sign up </a>
-    </form>
-  
-      
-      
-      
+
+ 
+
     </div>
-  
-    </div>
+ 
   </div>
-    
-</section>  
+</section>
+  
+   
+
+
+
+<section>
+  <div class="container mb-5">
+  <div class="cart-calculator-wrapper shadow">
+    <div class="cart-calculate-items">
+        <h3 class="bg-dark">Cart Totals</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <tbody><tr>
+                    <td>Sub Total</td>
+                    <td class="sub-amount">0</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>EGP 0</td>
+                </tr>
+                <tr class="total">
+                    <td style="color:#e1306c">Total</td>
+                    <td class="total-amount">0</td>
+                </tr>
+            </tbody></table>
+        </div>
+    </div>
+    <!-- <a href="checkout.html" class="btn flosun-button primary-btn rounded-0 black-btn w-100">Proceed To Checkout</a> -->
+</div>
+</div>
+</section>
 
 
 
@@ -95,12 +167,14 @@
 
 
 
- 
 
 
 
- 
- 
+
+
+
+
+
 
 
 
@@ -195,15 +269,17 @@
 
     
 
-<script src="js/login.js"></script>
-<!-- *************************************** JavaScript ************************-->
+<script src="js/carts.js"></script>
+<script src="js/user.js"></script>
+
+
 
  <!-- Bootstarp  -->
     <!-- Latest compiled JavaScript -->
     
 <script src="js/bootstrap.bundle.min.js"></script>     <!-- include popper.min.js  -->
 
-
+<!-- *************************************** JavaScript ************************-->
 
 
 

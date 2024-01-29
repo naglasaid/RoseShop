@@ -17,15 +17,15 @@ loginBtn.addEventListener("click",function(z){
         alert("Please Enter Your Credentials")
     } 
     else{
-        if((getUsername && getUsername.trim() === username.value && getPassword && getPassword.trim() === password.value))
+        if((getUsername === username.value && username.value.trim() && getPassword === password.value && password.value.trim()))
         {
             setTimeout (()=> {
-                window.location ="index.html"
+                window.location ="products.html"
             },1500)
         
         }
     else{
-        alert("Please Enter Your Valid Credentials ")
+        alert("One of Your Credentials is Incorrect")
     }
 }
 })
