@@ -1,0 +1,110 @@
+:root{
+    --black-color:#1d1d1b;
+    /* --orange-color:#f35525; */
+    --brown-color:#c19d5f;
+    --pink-color:#ef3766;
+    --silver-color:#a7b2b9;
+    --black-color: rgba(0, 0, 0, 0.87);
+    --light-color:#faf6f0;
+    --light-gray:#fafafa;
+    
+}
+
+.aboutdiv1{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+flex-wrap: wrap;
+/* padding: 10px; */
+
+}
+
+.aboutparent1,.aboutparent2,.aboutparent3{
+    /* clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); */
+    padding: 10px;  
+    border: 1px dotted #ddd; 
+   
+    border-radius: 20px;
+    margin: 10px 10px;
+    
+}
+
+.aboutparent1,.aboutparent3{
+    border-top: 5px solid var(--brown-color) ;
+}
+
+.aboutparent2{
+    border-bottom: 5px solid var(--pink-color) ;
+}
+
+
+
+
+.div11{
+    /* clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);   */
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    width: 450px;
+    height: 450px;
+    background: url(../Images/Rose/rose32.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+   
+}
+.overlay-1{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--pink-color);
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left:0;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);  
+    /* clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); */
+   transition: all 1s;
+}
+
+.overlay-1:hover{
+height: 100%;
+}
+
+.overlay-1:hover .aboutparent1{
+    border-bottom: 5px solid var(--pink-color) ;
+}
+
+.overlay-1 p{
+line-height: 30px;
+/* margin: 0px 20px; */
+width: 100%;
+/* letter-spacing: 1px; */
+color: #fdc385;
+
+}
+
+.overlay-1 h2{
+    font-style: italic;
+    font-family: 'Dancing Script', cursive;
+}
+.div12{
+    /* clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);   */
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    width: 450px;
+    height: 450px;
+    background: url(../Images/Rose/rose36.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+   
+}
+
+.div13{
+    /* clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);   */
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    width: 450px;
+    height: 450px;
+    background: url(../Images/Rose/rose27.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+   
+}
+
