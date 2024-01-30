@@ -8,85 +8,85 @@ let allproducts= document.querySelector(".products")
 let products = [
     {
         id:1,
-        title:"Rose",
-        category:"flowers",
+        title:"Red Rose1",
+        category:"Flowers",
         price:1550,
         imageUrl:"images/Rose/rose1.jpg"
     },
     {
         id:2,
-        title:"Rose",
-        category:"flowers",
+        title:"Red Rose2",
+        category:"Flowers",
         price:1750,
         imageUrl:"images/Rose/rose42.jpg"
     },
     {
         id:3,
-        title:"Rose",
-        category:"flowers",
+        title:"Red Rose3",
+        category:"Flowers",
         price:1000,
         imageUrl:"images/Rose/rose3.jpg"
     },
     {
         id:4,
-        title:"Rose",
-        category:"flowers",
+        title:"Red Rose4",
+        category:"Flowers",
         price:  1250,
         imageUrl:"images/Rose/rose2.jpg"
     },
     {
         id:5,
-        title:"Rose",
-        category:"flowers",
+        title:"Red Rose5",
+        category:"Flowers",
         price: 2000,
         imageUrl:"images/Rose/rose12.jpg"
     },
     {
         id:6,
-        title:"Balloon",
-        category:"balloons",
+        title:"Balloon1",
+        category:"Balloons",
         price: 250,
         imageUrl:"images/Rose/balloon5.jpg"
     },
     {
         id:7,
-        title:"Rose",
-        category:"flowers",
+        title:"White Rose6",
+        category:"Flowers",
         price:1200,
         imageUrl:"images/Rose/rose45.jpg"
     },
     {
         id:8,
-        title:"Rose",
-        category:"flowers",
+        title:"Pink Rose7",
+        category:"Flowers",
         price:250,
         imageUrl:"images/Rose/rose44.jpg"
     },
     {
         id:9,
-        title:"Rose",
-        category:"flowers",
+        title:"Red Rose8",
+        category:"Flowers",
         price:1750,
         imageUrl:"images/Rose/rose43.jpg"
     },
     {
         id:10,
-        title:"Balloon",
-        category:"balloons",
+        title:"Balloon2",
+        category:"Balloons",
         price: 150,
         imageUrl:"images/Rose/balloon2.jpg"
     },
     {
         id:11,
-        title:"Rose",
-        category:"flowers",
+        title:"Red Rose9",
+        category:"Flowers",
         price:1400,
         imageUrl:"images/Rose/rose46.jpg"
     },
     {
         id:12,
-        title:"Rose",
-        category:"flowers",
+        title:"Red Rose10",
+        category:"Flowers",
         price: 1250,
         imageUrl:"images/Rose/rose6.jpg"
     }
@@ -100,10 +100,10 @@ return `
           
           <img src="${item.imageUrl}" class="img-fluid mt-2">
           <div class="item_desc">
-            <h5 class="product-title mt-1" style="color: #e1306c;">${item.title}</h5>
-            <h5 class="product-price" style="color: #e1306c; display: inline-block;">category :</h5> <h5 style="display: inline-block;">${item.category}</h5>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-            <span style="color:#ef3766;font-weight:bold">EGP </span><h5 class="product-price fw-bold my-2" style="display: inline-block;">${item.price}</h5><br>
+            <h4 class="product-title mt-1" style="color: #e1306c;">${item.title}</h4>
+            <h5 class="product-price" style="color: #e1306c; display: inline-block;">category :</h5> <h6 style="display: inline-block;color:black" class="fs-5">${item.category}</h6>
+            <p style="color:black">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            <span style="color:#ef3766;font-weight:bold">EGP </span><h5 class="product-price fw-bold my-2" style="display: inline-block;color:black">${item.price}</h5><br>
             
             <button class="btn rounded-pill btn-sm my-2 add_to_cart" onclick="AddToCart(${item.id})">Add To Cart</button>
           </div>
@@ -143,7 +143,7 @@ if(addedItems) {
     addedItems.map(item =>{
         cartproductDiv.innerHTML += `<p class="cart-item" style="color:black"><img style="width:80px;height:80px;border:1px solid #ddd" src="${item.imageUrl}">${item.title}
         <span class="cart-price">1*<span style="color:#ef3766;font-weight:bold">
-             ${item.price}</span></span><span><i class="fas fa-trash remove_from_cart" style="color:#c19d5f" ></i></span><hr></hr></p>`
+             ${item.price}</span></span><span><i class="fas fa-trash remove_from_cart" style="color:#c19d5f"></i></span><hr></hr></p>`
              ///////////////Add Total//////////////////////////////////////////
 carttotal  += +(`${item.price}`)
 mycarttotal.innerHTML = `<span style="color: #ef3766;">EGP  </span>` + +(carttotal)
@@ -167,11 +167,12 @@ mycarttotal.innerHTML = `<span style="color: #ef3766;">EGP  </span>` + +(carttot
             cartproductDiv.innerHTML += `<p class="cart-item" style="color:black">
             <img style="width:80px;height:80px;border:1px solid #ddd" src="${choosenItem.imageUrl}">${choosenItem.title}
             <span class="cart-price">1*<span style="color:#ef3766;font-weight:bold">
-             ${choosenItem.price}</span></span><span><i class="fas fa-trash remove_from_cart" style="color:#c19d5f"></i></span></p>
+             ${choosenItem.price}</span></span><span><i class="fas fa-trash remove_from_cart" style="color:#c19d5f"></i></span><hr></hr></p>`
              
-        <hr></hr>`
+        
 ///////////////Add Total//////////////////////////////////////////
           carttotal  += +(`${choosenItem.price}`)
+          console.log(carttotal)
           mycarttotal.innerHTML = `<span style="color: #ef3766;">EGP  </span>` + +(carttotal)
 ///////////////Add Total////////////////////////////////////////
            ////// Transfer added items//////////////////
@@ -207,7 +208,7 @@ mycarttotal.innerHTML = `<span style="color: #ef3766;">EGP  </span>` + +(carttot
 ////////////////////////Button Add To Cart end////////////
 
 
-shoppingCartIcon.addEventListener("click",opencart)
+shoppingCartIcon.addEventListener("mousemove",opencart)
 
 function opencart(){
     // if (cartproductDiv.innerHTML == "") {
@@ -251,3 +252,115 @@ function getButtons(){
     }
     getButtons()
     //////////////////////////////////////////////////////////////
+
+
+
+
+    ////////////////////////// search start///////////////////////////////////////////////
+let dropdownBtn = document.getElementById("drop-text")
+let list = document.getElementById("list")
+let icon = document.getElementById("icon")
+let span = document.getElementById("span")
+let input = document.getElementById("search-input")
+let listItems = document.querySelectorAll(".dropdown-list-item")
+
+
+//show dropdown list on click on dropdown btn
+
+dropdownBtn.onclick = function(){
+    // rotate arrow icon
+    if(list.classList.contains('show')){
+        icon.style.rotate= "0deg"
+    }else{
+        icon.style.rotate= "-180deg"
+    }
+    list.classList.toggle("show");
+    
+   
+};
+
+//
+// hide dropdown list when clicked outside dropdown btn
+window.onclick=function(e){
+if(
+    e.target.id !== "drop-text" &&
+    e.target.id !== "span" &&
+    e.target.id !== "icon"
+
+ ){
+    list.classList.remove("show");
+    icon.style.rotate= "0deg"
+ }
+}
+
+
+for(item of listItems ){
+
+    item.onclick= function(e){
+
+//change dropdown btn text on click on selected list item
+     span.innerText = e.target.innerText
+     // change input placeholder text on selected list item
+if (e.target.innerText == "Everything")
+{
+input.placeholder = "Search Anything..."
+}else{
+    input.placeholder= "Search " + e.target.innerText + "..."
+}
+
+    }
+
+}
+
+
+
+///// search by word in input
+
+// // input.addEventListener("input",(e)=>{
+// // const value= e.target.value.lowerCase()
+// // console.log(value)
+// })
+
+const search = () =>{
+   const searchinput =  document.getElementById("search-input").value.toUpperCase()
+//    const storeitems = document.querySelector(".products")
+const product = document.querySelectorAll(".product-item")
+const pname = allproducts.getElementsByTagName("h4")
+
+
+
+for (var i= 0 ; i < pname.length; i++){
+let match
+if (span.innerText == "By Name" ){
+     match = product[i].getElementsByTagName("h4")[0] 
+}else if(span.innerText == "By Category" ) {
+    match = product[i].getElementsByTagName("h6")[0]
+}
+
+// let match = product[i].getElementsByTagName("h4")[0]
+   
+if(match){
+ 
+    let textvalue = match.textContent || match.innerHTML
+    
+      if (textvalue.toUpperCase().indexOf(searchinput) > -1 ){
+        product[i].style.display="";
+
+      }else {
+        product[i].style.display="none";
+      }
+
+}
+
+}
+
+}  //function
+
+
+
+
+
+    ////////////////////////// search end///////////////////////////////////////////////
+
+
+
