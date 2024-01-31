@@ -2,13 +2,16 @@
 
 
 let ProductsInCart= localStorage.getItem("productsInCart")
+let productsInFav = localStorage.getItem("productsInFav")
 let allproducts= document.querySelector(".products") 
-
+// let favproductDiv =document.querySelector(".fav_products")
+let favproducts = document.querySelector(".fav_products")
 
 if (ProductsInCart){
    let item = JSON.parse(ProductsInCart);
   
     drawCartProducts(item);
+    console.log(item)
 }
 
 function drawCartProducts(products){
@@ -39,9 +42,8 @@ function drawCartProducts(products){
     }
 
 
-
-
-
+    
+    
    
   
 
@@ -113,3 +115,39 @@ function getminusplusButtons(){
   }
   getminusplusButtons()
   updateTotal()
+
+
+
+  ////////////////////////Get Fav/////////////////////////////
+
+  if (productsInFav){
+    
+    let itemfav = JSON.parse(productsInFav);
+    console.log(itemfav)
+    drawFavProducts(itemfav);
+ }
+
+ function drawFavProducts(favProd){
+   
+  let z = favProd.map((itemv)=> {
+    
+  return `
+
+     <div class="col-lg-3 col-md-6 p-3 product-item">
+        
+        <img src="${itemv.imageUrl}" class="img-fluid mt-2">
+        <div class="item_desc" style="color:black">
+          <h5 class="product-title my-2" style="color: #e1306c;">${itemv.title}</h5>
+          <h5 class="" style="color: #e1306c; display: inline-block;">category :</h5> <h5 class="my-2" style="display: inline-block";>${itemv.category}</h5><br>
+          <span style="color:#ef3766;font-weight:bold">EGP </span> <h5 class="product-price fw-bold my-2" style="display: inline-block">${itemv.price}</h5></p>
+          
+          
+        </div>
+      </div>
+
+
+`
+  })
+  // calling Div
+  favproducts.innerHTML=z;
+}

@@ -294,21 +294,23 @@ opacity: .9;
   flex-wrap: wrap;
   text-align: center;
   /* border: 1px dashed #ddd; */
+  font-family: 'Dancing Script', cursive;
+  
 }
 .Products-announcement a{
   display: block;
 /* background: linear-gradient(150deg,#1e1e1e, #ef3766); */
 color: #fff;
 background-color: #c19d5f;
-
 cursor: auto;
 padding:  5px;
 width: 170px;
 height: 40px;
-font-weight: bold;
+font-weight: 500;
 box-shadow: 5px 10px 10px 2px silver;
 letter-spacing: 1.5px;
 position: relative;
+font-size: large;
 }
 .Products-announcement a span{
   position: absolute;
@@ -321,11 +323,16 @@ position: relative;
   display: inline-block;
   padding: 9px 15px;
   margin: 2px 5px 5px 0px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   /* box-shadow: 5px 0px 15px 2px silver inset; */
    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+   transition: all 5s;
 }
 
+.Products-announcement a span:hover{
+  /* clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%); */
+  /* box-shadow: 5px 0px 15px 2px silver ; */
+}
 
 /*///////////////////////////////////////////////////////////// welcome section end /////////////////////////////////////////////////////////*/
 /* //////////////////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -487,7 +494,10 @@ border-radius: 30px;
 
 .card-img-overlay .fav{
 cursor: pointer;
-
+transition: all 0.5s;
+}
+.card-img-overlay .fav:hover,.card-img-overlay .fav:focus{
+ /* color: #ef3766; */
 }
 
 .product-item .item_desc button{
@@ -723,8 +733,52 @@ color:silver ;
 /* ///////////////////////////////////////search end//////////////////////////////////////////////////////////*/
 
 
+.favdiv{
+  width: 450px;
+  height: 430px;
+  margin: auto;
+  overflow-y: scroll;
+  
+}
+.h3style{
+  width: 450px;
+  margin: auto;
+}
+
+.fav_products{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
 
+}
+.favdiv::-webkit-scrollbar{
+  display: none;
+
+}
+
+.fav_products .product-item{
+  width: 90%;
+  border: 1px solid #ddd;
+border-radius: 10px;
+box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.06);
+padding: 8px 15px;
+display: flex;
+align-items: center;
+
+}
+.fav_products .product-item img{
+  width:110px;
+  height:110px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.fav_products .product-item .item_desc{
+  /* font-size: 20px; */
+  padding-left: 15px;
+
+}
 
 
 

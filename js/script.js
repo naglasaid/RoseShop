@@ -109,7 +109,8 @@ return `
           </div>
           
           <div class="card-img-overlay">
-            <i class="far fa-heart fs-4 fav"></i>
+            <i class="fas fa-heart fs-4 fav" onclick="AddToFav(${item.id})"></i>
+           
           </div> 
         </div>
 
@@ -137,21 +138,23 @@ let btnAddToCart= document.querySelectorAll(".add_to_cart")
         let mycarttotal= document.querySelector(".mycarttotal")
         let carttotal = 0
     // let addedItems =[]
- let addedItems =localStorage.getItem("productsInCart")? JSON.parse(localStorage.getItem("productsInCart")) :[];
 
+
+ let addedItems =localStorage.getItem("productsInCart")? JSON.parse(localStorage.getItem("productsInCart")) :[];
+let addedItemsv = localStorage.getItem("productsInFav")? JSON.parse(localStorage.getItem("productsInFav")):[];
 if(addedItems) {
     addedItems.map(item =>{
         cartproductDiv.innerHTML += `<p class="cart-item" style="color:black"><img style="width:80px;height:80px;border:1px solid #ddd" src="${item.imageUrl}">${item.title}
         <span class="cart-price">1*<span style="color:#ef3766;font-weight:bold">
              ${item.price}</span></span><span><i class="fas fa-trash remove_from_cart" style="color:#c19d5f"></i></span><hr></hr></p>`
              ///////////////Add Total//////////////////////////////////////////
-carttotal  += +(`${item.price}`)
-mycarttotal.innerHTML = `<span style="color: #ef3766;">EGP  </span>` + +(carttotal)
+            carttotal  += +(`${item.price}`)
+            mycarttotal.innerHTML = `<span style="color: #ef3766;">EGP  </span>` + +(carttotal)
 ///////////////Add Total////////////////////////////////////////
 
     })
-    badge.style.display="block";
-    badge.innerHTML= addedItems.length;
+            badge.style.display="block";
+            badge.innerHTML= addedItems.length;
 
 }
 
@@ -194,8 +197,33 @@ mycarttotal.innerHTML = `<span style="color: #ef3766;">EGP  </span>` + +(carttot
 
 
 ///////////////Add Total///////
+            } // function Add to Cart
 
-            }
+
+
+
+            function AddToFav(id){
+   
+                let choosenItemfav=products.find((item)=> item.id === id)
+                
+                
+                 
+            
+    
+               ////// Transfer fav items//////////////////
+
+               addedItemsv =[...addedItemsv,choosenItemfav]
+            //    addedItems =[...addedItems,choosenItemfav]
+
+               localStorage.setItem("productsInFav",JSON.stringify(addedItemsv))
+            //    
+              ////// Transfer fav items//////////////////
+    
+    
+    
+    
+               
+                } // function Add to Fav  
             
     }
     else
@@ -208,7 +236,7 @@ mycarttotal.innerHTML = `<span style="color: #ef3766;">EGP  </span>` + +(carttot
 ////////////////////////Button Add To Cart end////////////
 
 
-shoppingCartIcon.addEventListener("mousemove",opencart)
+shoppingCartIcon.addEventListener("mouseenter",opencart)
 
 function opencart(){
     // if (cartproductDiv.innerHTML == "") {
@@ -220,17 +248,7 @@ function opencart(){
     // }
     cartsproducts.style.display = "block"
    
-    // if (cartproductDiv.innerHTML != "") 
-    // {
-        
-
-    //     if(cartsproducts.style.display == "block")
-    //     {
-    //         cartsproducts.style.display = "none" 
-    //     }else{
-    //         cartsproducts.style.display = "block"
-    //     }
-    // }
+   
     
 }
 
@@ -361,6 +379,12 @@ if(match){
 
 
     ////////////////////////// search end///////////////////////////////////////////////
+
+
+    ////////////////////////////ADD To FAV strat////////////////////////////////////////////////////
+
+
+    ////////////////////////////ADD To FAV end////////////////////////////////////////////////////
 
 
 
