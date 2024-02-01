@@ -194,9 +194,6 @@ if(addedItems) {
 
             ///////////////Add Counter///////
 
-
-
-///////////////Add Total///////
             } // function Add to Cart
 
 
@@ -381,10 +378,32 @@ if(match){
     ////////////////////////// search end///////////////////////////////////////////////
 
 
-    ////////////////////////////ADD To FAV strat////////////////////////////////////////////////////
+    ////////////////////////////change FAV-icon-color start////////////////////////////////////////////////////
+    function getfavButtons(){
+        var favButtons= document.getElementsByClassName("fav")
+        var addedButtons = document.getElementsByClassName("add_to_cart")
+        for (var i = 0 ; i < favButtons.length; i++){
+      var buttonv = favButtons[i]
+      var buttonadd= addedButtons[i]
+      buttonv.addEventListener("mouseenter",changefavButtons)
+    //   buttonadd.addEventListener("mousenter",changecontentButton)
+        }
+      }
 
+      function changefavButtons(event){
+        var buttonclicked = event.target;
+        buttonclicked.style.color="red";
+   
+    
+  }
 
-    ////////////////////////////ADD To FAV end////////////////////////////////////////////////////
+  function changecontentButton(event){
+  var buttonclicked = event.target;
+  buttonclicked.innerText="Added"
+  }
+
+  getfavButtons()
+    ////////////////////////////change FAV-icon-color end//////////////////////////////////////////////////// ////////////////////////////ADD To FAV end////////////////////////////////////////////////////
 
 
 
