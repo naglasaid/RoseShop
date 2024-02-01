@@ -129,8 +129,7 @@ drawProducts()
 ///////////////////// Button Add To Cart start/////////////////////////////
 let badge = document.querySelector(".badge")
 let btnAddToCart= document.querySelectorAll(".add_to_cart")
- //     btnAddToCart.textContent="Remove from Cart"
-        //    btnAddToCart.style.backgroundColor="#ef3766";       
+ 
     
         let cartproductDiv =document.querySelector(".carts_products div")
         let shoppingCartIcon= document.querySelector(".shopping-cart") 
@@ -178,6 +177,7 @@ if(addedItems) {
           console.log(carttotal)
           mycarttotal.innerHTML = `<span style="color: #ef3766;">EGP  </span>` + +(carttotal)
 ///////////////Add Total////////////////////////////////////////
+
            ////// Transfer added items//////////////////
            addedItems =[...addedItems,choosenItem]
            localStorage.setItem("productsInCart",JSON.stringify(addedItems))
@@ -385,7 +385,7 @@ if(match){
         for (var i = 0 ; i < favButtons.length; i++){
       var buttonv = favButtons[i]
       var buttonadd= addedButtons[i]
-      buttonv.addEventListener("mouseenter",changefavButtons)
+      buttonv.addEventListener("click",changefavButtons)
     //   buttonadd.addEventListener("mousenter",changecontentButton)
         }
       }

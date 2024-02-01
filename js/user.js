@@ -1,10 +1,13 @@
 // Getting User Data
 let userinfo = document.querySelector("#user_info")
 let userData = document.querySelector("#user")
-let links = document.querySelector("#links")
+// let links = document.querySelector("#links")
+
 if (localStorage.getItem("username")){
-    links.remove()
+    // userinfo
+    // links.remove()
     userinfo.style.display="flex"
+    userinfo.style.justifyContent="spaceBetween"
     userData.style.color= "#ef3766"
     userData.style.textDecoration="none"
     userData.style.fontWeight="bold"

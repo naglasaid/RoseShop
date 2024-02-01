@@ -7,11 +7,17 @@ let allproducts= document.querySelector(".products")
 // let favproductDiv =document.querySelector(".fav_products")
 let favproducts = document.querySelector(".fav_products")
 
+// let addedItems =localStorage.getItem("productsInCart")? JSON.parse(localStorage.getItem("productsInCart")) :[];
+// addedItems =[...addedItems,choosenItem]
+//  localStorage.setItem("productsInCart",JSON.stringify(addedItems))
+
+
+
 if (ProductsInCart){
    let item = JSON.parse(ProductsInCart);
   
     drawCartProducts(item);
-    console.log(item)
+    
 }
 
 function drawCartProducts(products){
@@ -66,7 +72,7 @@ button.addEventListener("click",RemoveFromCart)
     let grandelement = buttonclicked.parentElement.parentElement
     grandelement.remove();
     updateTotal()
-    
+    drawCart()
   }
   getButtons()
   //////////////////////////////////////////////////////////////
@@ -115,7 +121,7 @@ function getminusplusButtons(){
   }
   getminusplusButtons()
   updateTotal()
-
+ 
 
 
   ////////////////////////Get Fav/////////////////////////////
@@ -151,3 +157,63 @@ function getminusplusButtons(){
   // calling Div
   favproducts.innerHTML=z;
 }
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+let shoppingCartIcon= document.querySelector(".shopping-cart") 
+let cartsproducts= document.querySelector(".carts_products")
+let cartproductDiv =document.querySelector(".carts_products div")
+let badge = document.querySelector(".badge")
+
+
+shoppingCartIcon.addEventListener("mouseenter",opencart)
+
+function opencart(){
+   
+    cartsproducts.style.display = "block"
+   
+   
+    
+}
+
+
+        function drawCart(){
+          
+          var remaineditems=document.getElementsByClassName("product-item") 
+          
+          
+          cartproductDiv.innerHTML =""
+          
+          for (var i = 0 ; i < remaineditems.length; i++){
+            var cartitem= remaineditems[i]
+            
+            var imgElement= cartitem.getElementsByTagName("img")[0]
+            var img = imgElement.getAttribute("src")
+            var titleElement= cartitem.getElementsByClassName("product-title")[0]
+            var title = titleElement.innerText
+            var priceElement= cartitem.getElementsByClassName("product-price")[0]
+            var price = priceElement.innerText
+            console.log(price)
+          
+           
+            cartproductDiv.innerHTML += `<p class="cart-item" style="color:black"><img style="width:80px;height:80px;border:1px solid #ddd" src="${img}">${title}
+            <span class="cart-price">1*<span style="color:#ef3766;font-weight:bold">
+                 ${price}</span></span><hr style="color:black"></hr></p>`
+            
+            
+          }
+
+          badge.style.display="block";
+          badge.innerHTML= remaineditems.length;
+
+        }
+        drawCart()
+
+
+
+
+         
+         
+      
