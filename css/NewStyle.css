@@ -134,7 +134,6 @@ border: 1px solid #fff;
 
 
 
-
 /*//////////////////////////////////////////////////////////////////////////////////// navbar ///////////////////////////////////////////////////////////*/
 
 
@@ -735,10 +734,10 @@ color:silver ;
 
 .favdiv{
   width: 450px;
-  height: 430px;
+  height: 440px;
   margin: auto;
   overflow-y: scroll;
-  
+   
 }
 .h3style{
   width: 450px;

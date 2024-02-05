@@ -109,7 +109,7 @@ return `
           </div>
           
           <div class="card-img-overlay">
-            <i class="fas fa-heart fs-4 fav" onclick="AddToFav(${item.id})"></i>
+            <i class="fas fa-heart fs-4 fav" id="h${item.id}" onclick="AddToFav(${item.id})"></i>
            
           </div> 
         </div>
@@ -170,7 +170,7 @@ if(addedItems) {
             <img style="width:80px;height:80px;border:1px solid #ddd" src="${choosenItem.imageUrl}">${choosenItem.title}
             <span class="cart-price">1*<span style="color:#ef3766;font-weight:bold">
              ${choosenItem.price}</span></span><span><i class="fas fa-trash remove_from_cart" style="color:#c19d5f"></i></span><hr></hr></p>`
-             
+            //  console.log(choosenItem)
         
 ///////////////Add Total//////////////////////////////////////////
           carttotal  += +(`${choosenItem.price}`)
@@ -204,13 +204,10 @@ if(addedItems) {
                 let choosenItemfav=products.find((item)=> item.id === id)
                 
                 
-                 
-            
-    
                ////// Transfer fav items//////////////////
 
                addedItemsv =[...addedItemsv,choosenItemfav]
-            //    addedItems =[...addedItems,choosenItemfav]
+            
 
                localStorage.setItem("productsInFav",JSON.stringify(addedItemsv))
             //    
@@ -236,13 +233,7 @@ if(addedItems) {
 shoppingCartIcon.addEventListener("mouseenter",opencart)
 
 function opencart(){
-    // if (cartproductDiv.innerHTML == "") {
-    //     cartproductDiv.innerHTML = "YOUR CART IS EMPTY"
-
-    // }
-    // else {
-        
-    // }
+   
     cartsproducts.style.display = "block"
    
    
@@ -381,28 +372,60 @@ if(match){
     ////////////////////////////change FAV-icon-color start////////////////////////////////////////////////////
     function getfavButtons(){
         var favButtons= document.getElementsByClassName("fav")
-        var addedButtons = document.getElementsByClassName("add_to_cart")
+        // var addedButtons = document.getElementsByClassName("add_to_cart")
+
         for (var i = 0 ; i < favButtons.length; i++){
       var buttonv = favButtons[i]
-      var buttonadd= addedButtons[i]
+    //   var buttonadd= addedButtons[i]
       buttonv.addEventListener("click",changefavButtons)
-    //   buttonadd.addEventListener("mousenter",changecontentButton)
+    
         }
       }
 
       function changefavButtons(event){
         var buttonclicked = event.target;
-        buttonclicked.style.color="red";
-   
-    
-  }
-
-  function changecontentButton(event){
-  var buttonclicked = event.target;
-  buttonclicked.innerText="Added"
+        buttonclicked.style.color="red"; 
   }
 
   getfavButtons()
+
+
+  if(localStorage.getItem('productsInFav')){
+    let myfav= JSON.parse(localStorage.getItem('productsInFav'))
+    // console.log(myfav) 
+    var favButtons= document.getElementsByClassName("product-item")
+   
+    for(let i =0 ; i< myfav.length;i++){
+        let buttonv1=document.getElementById("h"+ myfav[i].id)
+        // var favindex = myfav[i].id
+        // console.log(favButtons)
+
+        // let index =products.find((x)=>{
+        //         return  x.id==favindex
+                
+        //       }) 
+            //   console.log(index)
+        // let buttonv1=document.getElementById(myfav[i].id)
+        // console.log(myfav[i].id)
+        // var buttonv1 = favButtons[i]
+        buttonv1.style.color='red'
+    }
+}
+
+// let index =itemfav.findIndex((x)=>{
+//     return  x.id==id
+//   })
+
+
+
+
+
+
+
+
+
+
+
     ////////////////////////////change FAV-icon-color end//////////////////////////////////////////////////// ////////////////////////////ADD To FAV end////////////////////////////////////////////////////
 
 

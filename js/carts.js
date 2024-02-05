@@ -3,25 +3,36 @@
 
 let ProductsInCart= localStorage.getItem("productsInCart")
 let productsInFav = localStorage.getItem("productsInFav")
+
 let allproducts= document.querySelector(".products") 
 // let favproductDiv =document.querySelector(".fav_products")
 let favproducts = document.querySelector(".fav_products")
-
-// let addedItems =localStorage.getItem("productsInCart")? JSON.parse(localStorage.getItem("productsInCart")) :[];
-// addedItems =[...addedItems,choosenItem]
-//  localStorage.setItem("productsInCart",JSON.stringify(addedItems))
-
-
+let item = JSON.parse(ProductsInCart);
 
 if (ProductsInCart){
-   let item = JSON.parse(ProductsInCart);
+
   
-    drawCartProducts(item);
+   
+   
+  
+    let item = JSON.parse(ProductsInCart)
     
-}
+      drawCartProducts(item);
+      
+  }
+  
+
+  // let nn= JSON.parse(localStorage.getItem("naglaa"))
+  // drawCartProducts(nn);
+
+  
+
 
 function drawCartProducts(products){
-   
+
+ 
+  
+  
         let d= products.map((item)=> {
           
         return `
@@ -35,23 +46,24 @@ function drawCartProducts(products){
                  <h5 style="display: inline-block; margin-right:5px">Qty:</h5>
                 <input class="product-quantity" type="number" value="1" min="0" style="width:60px;display: inline-block;padding-left:3px"><br>
                 <span style="color:#ef3766;font-weight:bold">EGP </span> <h5 class="product-price fw-bold my-2" style="display: inline-block">${item.price}</h5></p>
-                <button class="btn rounded-pill btn-sm my-2 remove_from_cart" style="background-color:#ef3766;">Remove From Cart</button>
+                <button class="btn rounded-pill btn-sm my-2 remove_from_cart" onclick="removeItems(${item.id})"   style="background-color:#ef3766;">Remove From Cart</button>
                 
               </div>
+              
             </div>
 
-    
+            
     `
         })
         // calling Div
         allproducts.innerHTML=d;
     }
 
-
+    
     
     
    
-  
+  // onclick="removeItems(${item.id})"
 
      
    
@@ -62,24 +74,53 @@ function getButtons(){
   var removecartButtons= document.getElementsByClassName("remove_from_cart")
   for (var i = 0 ; i < removecartButtons.length; i++){
 var button = removecartButtons[i]
-button.addEventListener("click",RemoveFromCart)
+// console.log(button)
+// button.addEventListener("click",RemoveFromCart)
   }
 }
 
 ///////////////////////////////////RemoveFromCart//////////////////////////////////////////
   function RemoveFromCart(event){
-        var buttonclicked = event.target;
-    let grandelement = buttonclicked.parentElement.parentElement
-    grandelement.remove();
+    
+    var buttonclicked = event.target;
+     let grandelement = buttonclicked.parentElement.parentElement
+     grandelement.remove();
+     console.log(id)
+
+
     updateTotal()
     drawCart()
+    
   }
-  getButtons()
+  // getButtons()
   //////////////////////////////////////////////////////////////
 
 
-function getminusplusButtons(){
+  function removeItems(id){
+    
+      // let item = JSON.parse(ProductsInCart);
+    var index= item.findIndex((x)=>{
+     return x.id==id
+    
+  })
   
+  item.splice(index,1)
+  
+   
+  localStorage.setItem("productsInCart",JSON.stringify(item))
+  
+  drawCartProducts(item)
+  
+  updateTotal()
+    drawCart()
+
+}
+
+
+
+
+function getminusplusButtons(){
+
   var inputQ= document.getElementsByClassName("product-quantity") 
   // var priceElement1= cartitem.getElementsByClassName("product-price")
   for (var i = 0 ; i < inputQ.length; i++)
@@ -95,6 +136,7 @@ function getminusplusButtons(){
 
   ////////////////////////////////////////////////////////////
   function updateTotal(){
+    
     // var cartContent=document.getElementsByClassName("products")[0]
     var cartItems=document.getElementsByClassName("product-item")  
     
@@ -117,6 +159,7 @@ function getminusplusButtons(){
     total = total + (price*quantity)
     document.getElementsByClassName('sub-amount')[0].innerText= 'EGP ' + total
     document.getElementsByClassName('total-amount')[0].innerText= 'EGP ' + total
+    localStorage.setItem("total",total)
     }
   }
   getminusplusButtons()
@@ -125,11 +168,11 @@ function getminusplusButtons(){
 
 
   ////////////////////////Get Fav/////////////////////////////
-
+  let itemfav
   if (productsInFav){
     
-    let itemfav = JSON.parse(productsInFav);
-    console.log(itemfav)
+     itemfav = JSON.parse(productsInFav);
+    
     drawFavProducts(itemfav);
  }
 
@@ -146,9 +189,9 @@ function getminusplusButtons(){
           <h5 class="product-title my-2" style="color: #e1306c;">${itemv.title}</h5>
           <h5 class="" style="color: #e1306c; display: inline-block;">category :</h5> <h5 class="my-2" style="display: inline-block";>${itemv.category}</h5><br>
           <span style="color:#ef3766;font-weight:bold">EGP </span> <h5 class="product-price fw-bold my-2" style="display: inline-block">${itemv.price}</h5></p>
-          
-          
-        </div>
+          <i class="fas fa-heart fs-4 fav me-auto" style="color: red;" onclick="RemoveFromFav(${itemv.id})"></i>
+          </div>
+        
       </div>
 
 
@@ -158,7 +201,19 @@ function getminusplusButtons(){
   favproducts.innerHTML=z;
 }
 
+function RemoveFromFav(id){
+  let index =itemfav.findIndex((x)=>{
+    return  x.id==id
+  })
 
+  itemfav.splice(index,1)
+  localStorage.setItem('productsInFav',JSON.stringify(itemfav))
+  console.log(itemfav)
+
+  // addEventListener('click',(e)=> e.preventDefault())
+  // location.reload()
+  drawFavProducts(itemfav)
+}
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -171,7 +226,7 @@ let badge = document.querySelector(".badge")
 shoppingCartIcon.addEventListener("mouseenter",opencart)
 
 function opencart(){
-   
+ 
     cartsproducts.style.display = "block"
    
    
@@ -180,7 +235,7 @@ function opencart(){
 
 
         function drawCart(){
-          
+        
           var remaineditems=document.getElementsByClassName("product-item") 
           
           
@@ -195,7 +250,8 @@ function opencart(){
             var title = titleElement.innerText
             var priceElement= cartitem.getElementsByClassName("product-price")[0]
             var price = priceElement.innerText
-            console.log(price)
+            
+            
           
            
             cartproductDiv.innerHTML += `<p class="cart-item" style="color:black"><img style="width:80px;height:80px;border:1px solid #ddd" src="${img}">${title}
@@ -207,13 +263,17 @@ function opencart(){
 
           badge.style.display="block";
           badge.innerHTML= remaineditems.length;
-
-        }
-        drawCart()
+          
+          // localStorage.setItem("productsInCart",JSON.stringify(zz))
+          // console.log(localStorage.getItem("productsInCart"))
+         
+         
+         }
+        // drawCart()
 
 
 
 
          
          
-      
+    
