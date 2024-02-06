@@ -11,84 +11,96 @@ let products = [
         title:"Red Rose1",
         category:"Flowers",
         price:1550,
-        imageUrl:"images/Rose/rose1.jpg"
+        imageUrl:"images/Rose/rose1.jpg",
+        amount:1
     },
     {
         id:2,
         title:"Red Rose2",
         category:"Flowers",
         price:1750,
-        imageUrl:"images/Rose/rose42.jpg"
+        imageUrl:"images/Rose/rose42.jpg",
+        amount:1
     },
     {
         id:3,
         title:"Red Rose3",
         category:"Flowers",
         price:1000,
-        imageUrl:"images/Rose/rose3.jpg"
+        imageUrl:"images/Rose/rose3.jpg",
+        amount:1
     },
     {
         id:4,
         title:"Red Rose4",
         category:"Flowers",
         price:  1250,
-        imageUrl:"images/Rose/rose2.jpg"
+        imageUrl:"images/Rose/rose2.jpg",
+        amount:1
     },
     {
         id:5,
         title:"Red Rose5",
         category:"Flowers",
         price: 2000,
-        imageUrl:"images/Rose/rose12.jpg"
+        imageUrl:"images/Rose/rose12.jpg",
+        amount:1
     },
     {
         id:6,
         title:"Balloon1",
         category:"Balloons",
         price: 250,
-        imageUrl:"images/Rose/balloon5.jpg"
+        imageUrl:"images/Rose/balloon5.jpg",
+        amount:1
     },
     {
         id:7,
         title:"White Rose6",
         category:"Flowers",
         price:1200,
-        imageUrl:"images/Rose/rose45.jpg"
+        imageUrl:"images/Rose/rose45.jpg",
+        amount:1
     },
     {
         id:8,
         title:"Pink Rose7",
         category:"Flowers",
         price:250,
-        imageUrl:"images/Rose/rose44.jpg"
+        imageUrl:"images/Rose/rose44.jpg",
+        amount:1
     },
     {
         id:9,
         title:"Red Rose8",
         category:"Flowers",
         price:1750,
-        imageUrl:"images/Rose/rose43.jpg"
+        imageUrl:"images/Rose/rose43.jpg",
+        amount:1
     },
     {
         id:10,
         title:"Balloon2",
         category:"Balloons",
         price: 150,
-        imageUrl:"images/Rose/balloon2.jpg"
+        imageUrl:"images/Rose/balloon2.jpg",
+        amount:1
     },
     {
         id:11,
         title:"Red Rose9",
         category:"Flowers",
         price:1400,
-        imageUrl:"images/Rose/rose46.jpg"
+        imageUrl:"images/Rose/rose46.jpg",
+        amount:1
     },
     {
         id:12,
         title:"Red Rose10",
         category:"Flowers",
         price: 1250,
-        imageUrl:"images/Rose/rose6.jpg"
+        imageUrl:"images/Rose/rose6.jpg",
+        amount:1
     }
 ]
 
@@ -135,9 +147,10 @@ let btnAddToCart= document.querySelectorAll(".add_to_cart")
         let shoppingCartIcon= document.querySelector(".shopping-cart") 
         let cartsproducts= document.querySelector(".carts_products")
         let mycarttotal= document.querySelector(".mycarttotal")
-        let carttotal = 0
+        let carttotal =localStorage.getItem("total")? JSON.parse(localStorage.getItem("total")) :0;
+        // let carttotal=0
     // let addedItems =[]
-
+console.log(localStorage.getItem("total"))
 
  let addedItems =localStorage.getItem("productsInCart")? JSON.parse(localStorage.getItem("productsInCart")) :[];
 let addedItemsv = localStorage.getItem("productsInFav")? JSON.parse(localStorage.getItem("productsInFav")):[];
@@ -145,9 +158,11 @@ if(addedItems) {
     addedItems.map(item =>{
         cartproductDiv.innerHTML += `<p class="cart-item" style="color:black"><img style="width:80px;height:80px;border:1px solid #ddd" src="${item.imageUrl}">${item.title}
         <span class="cart-price">1*<span style="color:#ef3766;font-weight:bold">
-             ${item.price}</span></span><span><i class="fas fa-trash remove_from_cart" style="color:#c19d5f"></i></span><hr></hr></p>`
+             ${item.price}</span></span><span class="qty text-light">${item.amount}</span><hr></hr></p>`
              ///////////////Add Total//////////////////////////////////////////
-            carttotal  += +(`${item.price}`)
+            
+            //  carttotal  += +(`${item.price}`)
+            
             mycarttotal.innerHTML = `<span style="color: #ef3766;">EGP  </span>` + +(carttotal)
 ///////////////Add Total////////////////////////////////////////
 
@@ -169,18 +184,20 @@ if(addedItems) {
             cartproductDiv.innerHTML += `<p class="cart-item" style="color:black">
             <img style="width:80px;height:80px;border:1px solid #ddd" src="${choosenItem.imageUrl}">${choosenItem.title}
             <span class="cart-price">1*<span style="color:#ef3766;font-weight:bold">
-             ${choosenItem.price}</span></span><span><i class="fas fa-trash remove_from_cart" style="color:#c19d5f"></i></span><hr></hr></p>`
+             ${choosenItem.price}</span></span><span class="qty text-light">${choosenItem.amount}</span><hr></hr></p>`
             //  console.log(choosenItem)
         
 ///////////////Add Total//////////////////////////////////////////
           carttotal  += +(`${choosenItem.price}`)
-          console.log(carttotal)
+        //   
+        //   console.log(carttotal)
           mycarttotal.innerHTML = `<span style="color: #ef3766;">EGP  </span>` + +(carttotal)
 ///////////////Add Total////////////////////////////////////////
 
-           ////// Transfer added items//////////////////
+           ////// Transfer added items////////////////// 
            addedItems =[...addedItems,choosenItem]
            localStorage.setItem("productsInCart",JSON.stringify(addedItems))
+           localStorage.setItem("total",carttotal)
           ////// Transfer added items//////////////////
 
 
